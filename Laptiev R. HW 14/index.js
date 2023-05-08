@@ -6,17 +6,15 @@ class Person {
 }
 
 class Flat {
-    constructor() {
-        this.habitant = [];
-    }
+    habitant = [];
     addHabitant(Person) {
         this.habitant.push(Person);
     }
 }
 
 class House {
+    flat = [];
     constructor(maxFlats) {
-        this.flat = [];
         this.maxFlats = maxFlats;
     }
     addFlat(flat) {
