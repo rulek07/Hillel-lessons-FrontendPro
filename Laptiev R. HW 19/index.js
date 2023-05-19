@@ -1,9 +1,7 @@
-// const container = document.querySelector('#container');
-
-const randomNumber = Math.floor(Math.random() * 9) + 1;
-
 const img = document.createElement('img');
 
-img.setAttribute('src', `img/${randomNumber}.jpg`);
+const randomImg = Math.floor(Math.random() * 9) + 1;
+
+img.setAttribute('src', `img/${randomImg}.jpg`);
 
 document.body.append(img);
