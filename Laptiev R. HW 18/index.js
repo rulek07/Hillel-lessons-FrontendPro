@@ -1,13 +1,7 @@
-const table = document.createElement('table');
-let count = 1;
+const img = document.createElement('img');
 
-for (let i = 0; i < 10; i++) {
-    const tr = table.insertRow();
-    for (let j = 0; j < 10; j++) {
-        const td = tr.insertCell();
-        td.textContent = count;
-        count++;
-    }
-}
+const randomImg = Math.floor(Math.random() * 9) + 1;
 
-document.body.append(table);
+img.setAttribute('src', `img/${randomImg}.jpg`);
+
+document.body.append(img);
