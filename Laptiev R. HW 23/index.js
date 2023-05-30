@@ -138,6 +138,10 @@ const descriptionBoxTitle = descriptionBox.appendChild(document.createElement("H
       descriptionBoxTitle.textContent = titles.descriptionTitle;
 const descriptionBoxResult = descriptionBox.appendChild(document.createElement("div"));
 
+$(document).ready(function () {
+    $("#usernumber").inputmask("+38 (099) 999-99-99");
+});
+
 const cleaner = () => {
     const buyButton = document.getElementById('buyButton')
     buyButton && buyButton.remove()
@@ -163,21 +167,36 @@ function showProducts(item){
     })
 };
 
+function showDescription(product) {
+    descriptionBoxResult.textContent = product.description;
+    createBuyButton();   
+};
+
 function createBuyButton (){
     if(!document.getElementById('buyButton')){
         const buyButton = descriptionBox.appendChild(document.createElement("button"));
         buyButton.id = 'buyButton'
         buyButton.textContent = titles.buyButtonTitle;
         buyButton.addEventListener("click", function () {
-            alert('Спасибо за покупку. Удачных покатушек.');
-            cleaner();
-            buyButton.remove();
+            document.getElementById('popup').classList.add('active')
         });
-    } 
-        
+    }       
 };
 
-function showDescription(product) {
-    descriptionBoxResult.textContent = product.description;
-    createBuyButton();   
-};
+form.addEventListener('submit', getFormValue)
+
+function getFormValue(event) {
+    event.preventDefault();
+    const formData = {
+        userName: form.userName.value,
+        usersNumber: form.usersNumber.value,
+        usersCity: form.usersCity.value,
+        postNumber: form.postNumber.value,
+        paymentMethod: form.paymentMethod.value,
+        quantity: form.quantity.value,
+        usersComment: form.usersComment.value
+    }
+    console.log(formData)
+    cleaner();
+    document.getElementById('popup').classList.remove('active')
+}
