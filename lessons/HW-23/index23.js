@@ -157,13 +157,17 @@ catalog.forEach((category) => {
     catalogElement.addEventListener("click", showProducts);
 });
 
+let selectedProduct;
 function showProducts(item){
     let currentDep = catalog.find((category) => category.name === item.target.innerHTML);
     cleaner();
     currentDep.products.forEach((product) => {  
         const productItem = productBoxList.appendChild(document.createElement("li"));
         productItem.textContent = product.name;
-        productItem.addEventListener("click", () => showDescription(product));
+        productItem.addEventListener("click", () => {
+            selectedProduct = product.name
+            showDescription(product)
+        });
     })
 };
 
@@ -196,7 +200,14 @@ function getFormValue(event) {
         quantity: form.quantity.value,
         usersComment: form.usersComment.value
     }
-    console.log(formData)
-    cleaner();
-    document.getElementById('popup').classList.remove('active')
+    const new_window = window.open();
+          new_window.document.write(`<h3>Купленный товар: ${selectedProduct}.</h3>`);
+
+    for(key in formData){
+        new_window.document.write(`<p> - <strong>${key}</strong>: ${formData[key]}</p>`)
+    };
+
+    form.reset();
+    cleaner();   
+    document.getElementById('popup').classList.remove('active');
 }
