@@ -115,6 +115,7 @@ let titles = {
     productTitle: "Список велосипедов:",
     descriptionTitle: "Информация о товаре:",
     buyButtonTitle: "Купить",
+    regButtonTitle: "Регистрация"
 }
 const mainBox = document.getElementById("container");
 
@@ -138,6 +139,40 @@ const descriptionBoxTitle = descriptionBox.appendChild(document.createElement("H
       descriptionBoxTitle.textContent = titles.descriptionTitle;
 const descriptionBoxResult = descriptionBox.appendChild(document.createElement("div"));
 
+const regButton = catalogBox.appendChild(document.createElement("button"));
+      regButton.id = 'regButton'
+      regButton.textContent = titles.regButtonTitle;
+
+$(document).ready(function () {
+    $("#usernumber").inputmask("+38 (099) 999-99-99");
+    $("#usersNumber").inputmask("+38 (099) 999-99-99");
+    $("#birthDate").inputmask("99/99/9999");
+});
+
+regButton.addEventListener("click", () => {
+    registration.classList.add('active');
+})
+
+regForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    table.classList.add('show');
+    registration.classList.remove('active');
+  
+    userRegFirstname.innerHTML = regForm['firstName'].value;
+    userRegLastname.innerHTML = regForm['lastName'].value;
+    userRegBirth.innerHTML = regForm['birthDate'].value;
+    userRegNumber.innerHTML = regForm['usersNumber'].value;
+    userRegGender.innerHTML = regForm['gender'].value;
+    userRegCity.innerHTML = regForm['usersCity'].value;
+    userRegAdress.innerHTML = regForm['usersAdress'].value;
+    let lang = '';
+    lang = regForm['langEnglish'].checked ? regForm['langEnglish'].value + '<br>' : '';
+    lang += regForm['langDeutch'].checked ? regForm['langDeutch'].value + '<br>' : '';
+    lang += regForm['langUkraine'].checked ? regForm['langUkraine'].value + '<br>' : '';
+    userRegLanguage.innerHTML = lang;
+    regForm.reset();
+});
+
 const cleaner = () => {
     const buyButton = document.getElementById('buyButton')
     buyButton && buyButton.remove()
@@ -153,14 +188,23 @@ catalog.forEach((category) => {
     catalogElement.addEventListener("click", showProducts);
 });
 
+let selectedProduct;
 function showProducts(item){
     let currentDep = catalog.find((category) => category.name === item.target.innerHTML);
     cleaner();
     currentDep.products.forEach((product) => {  
         const productItem = productBoxList.appendChild(document.createElement("li"));
         productItem.textContent = product.name;
-        productItem.addEventListener("click", () => showDescription(product));
+        productItem.addEventListener("click", () => {
+            selectedProduct = product.name
+            showDescription(product)
+        });
     })
+};
+
+function showDescription(product) {
+    descriptionBoxResult.textContent = product.description;
+    createBuyButton();   
 };
 
 function createBuyButton (){
@@ -169,15 +213,32 @@ function createBuyButton (){
         buyButton.id = 'buyButton'
         buyButton.textContent = titles.buyButtonTitle;
         buyButton.addEventListener("click", function () {
-            alert('Спасибо за покупку. Удачных покатушек.');
-            cleaner();
-            buyButton.remove();
+            document.getElementById('popup').classList.add('active')
         });
-    } 
-        
+    }       
 };
 
-function showDescription(product) {
-    descriptionBoxResult.textContent = product.description;
-    createBuyButton();   
-};
+form.addEventListener('submit', getFormValue)
+
+function getFormValue(event) {
+    event.preventDefault();
+    const formData = {
+        userName: form.userName.value,
+        usersNumber: form.usersNumber.value,
+        usersCity: form.usersCity.value,
+        postNumber: form.postNumber.value,
+        paymentMethod: form.paymentMethod.value,
+        quantity: form.quantity.value,
+        usersComment: form.usersComment.value
+    }
+    const new_window = window.open();
+          new_window.document.write(`<h3>Купленный товар: ${selectedProduct}.</h3>`);
+
+    for(key in formData){
+        new_window.document.write(`<p> - <strong>${key}</strong>: ${formData[key]}</p>`)
+    };
+
+    form.reset();
+    cleaner();   
+    document.getElementById('popup').classList.remove('active');
+}
