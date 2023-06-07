@@ -12,17 +12,19 @@ a{
     flex-wrap: wrap;
 }
 .button{
-    border: 2px solid #000;
-    border-radius: 20px;
-    background-color: darkorange;
-    width: 170px;
+    border-radius: 10px;
+    background-color: #24A3FF;
+    width: 180px;
     height: 40px;
-    margin: 20px;
+    margin: 20px 37px;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
 }
 .link__holder{
     padding: 7px 0 0 15px;
 }
 .button:hover{
     background-color: aqua;
-    cursor: pointer;
+    transition: 0.5s;
+    
 }
