@@ -32,11 +32,12 @@ button{
     background-color: #24A3FF;
     box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
     color: #FFFFFF;
-    margin: 0 auto;
+    margin: 15px auto;
     border: none;
     cursor: pointer;
 }
 section{
+    position: relative;
     border: 2px solid #F48B30;
     border-radius: 5px;
     padding: 15px;
@@ -53,11 +54,12 @@ h2{
     font-size: 40px;
     margin: 0 0 10px 0;
     background: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 }   
 .user-info, 
-.user-reg{
+.user-reg,
+.confirm_btn{
     width: 33%;
     border: 2px solid ;
     background-color: #F5F5FA;
@@ -127,7 +129,8 @@ li:hover{
     box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5); 
 } 
 .modal-wrapper,
-.reg-wrapper{
+.reg-wrapper,
+.confirm_wrapper{
     display: none;
     position:fixed;
     width:100%;
@@ -168,4 +171,41 @@ tr{
 .row_title{
     font-style: italic;
     background-color: #F5F5FA
+}
+.modal_close{
+    position: absolute;
+    z-index: 99;
+    right: 10px;
+    top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    transition: all .2s ease;
+    cursor: pointer;
+    font-size: 25px;
+}
+.modal_close:hover{
+    color: #FF0000;
+    background: none;
+}
+#order_title,
+#orders_list,
+#return_btn{
+    display: none;
+}
+.liOrder{
+    text-transform: none; 
+}
+.deleteBtn{
+    color: #FF0000;
+    text-align: center;
+    padding: 10px 0 0 0;
+}
+#yes_btn,
+#no_btn{
+    width: 35%;
 }

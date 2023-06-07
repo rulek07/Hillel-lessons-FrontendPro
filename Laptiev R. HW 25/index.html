@@ -6,12 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Homework 24</title>
+    <script src="data.js" defer></script>
     <script src="index.js" defer></script>
 </head>
 <body>
-    <main id="container"></main>
+    <main id="container">
+        <section id="catalog">
+            <span data-return class="modal_close" id="return_btn">&#10008;</span>
+            <h3 data-start id="main_title">Категории Велосипедов:</h3>
+            <h3 data-order id="order_title">Мои заказы:</h3>
+            <ul data-start id="catalog_list"></ul>
+            <ul data-order id="orders_list"></ul>
+            <button data-start id="orderButton">Мои заказы</button>
+            <button id="regButton">Регистрация</button>
+           <div class="confirm_wrapper" id="confirm">
+                <div class="confirm_btn">
+                    <H4>Вы действительно хотите удалить?</H2>
+                    <div class="flex">
+                        <button id="yes_btn">Yes</button>
+                        <button id="no_btn">No</button>
+                    </div>
+                </div>
+           </div>
+        </section>
+        <section id="product">
+            <h3>Список велосипедов:</h3>
+            <ul id="product_list"></ul>
+        </section>
+        <section id="result">
+            <h3>Информация о товаре:</h3> 
+            <div id="description_result"></div> 
+        </section>
+    </main>
     <div class="modal-wrapper" id="popup">
         <div class="user-info">
+            <span data-closeUp class="modal_close">&#10008;</span>
             <H2>Подтвеждение заказа</H2>
             <form action="#" method="#" id="form">
                 <div>
@@ -87,6 +116,7 @@
     </div>
     <div class="reg-wrapper" id="registration">
         <div class="user-reg">
+            <span data-closeReg class="modal_close">&#10008;</span>
             <H2>Регистрация</H2>
             <form action="#" method="#" id="regForm">
                 <div>
