@@ -25,6 +25,5 @@ a{
 }
 .button:hover{
     background-color: aqua;
-    transition: 0.5s;
-    
+    transition: 0.5s;  
 }
