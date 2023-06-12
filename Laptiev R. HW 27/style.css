@@ -8,16 +8,31 @@ section{
     width: 75%;
     border: 2px solid lightcoral;
     border-radius: 8px;
-}
-div{
-    color: cornflowerblue;
-    padding: 0 25px;
+    padding: 0 20px;
 }
 h2{
     font-size: 25px;
     color: cornflowerblue;
     text-align: center;
     letter-spacing: 3px;
+}
+h3{
+    font-size: 20px;
+    color: cornflowerblue;
+    text-align: center;
+    text-transform: uppercase;
+}
+li{
+    color: cornflowerblue;
+    padding-bottom: 10px;
+}
+img{
+    border: 1px solid lightcoral;
+    border-radius: 10px;
+    background-color: lightblue;
+    width: 130px;
+    height: auto;
+    margin-top: 55px;
 }
 input{
     width: 50%;
@@ -29,11 +44,6 @@ input{
     border-color: lightcoral;
     cursor: pointer;
     border: 2px solid lightgrey;
-}
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
 input::placeholder {
     color: lightslategray;
@@ -65,22 +75,13 @@ button:hover {
     box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
     transition: 0.5s;
 }
-#post_wrapper{
-    display: none;
-}
-#comment_wrapper{
+#weather_wrapper{
     display: none;
 }
 #error_wrapper{
     display: none;
 }
-h3{
-    font-size: 30px;
-    color: red;
-    text-align: center;
-    text-transform: uppercase;
-}
-li{
-    color: cornflowerblue;
-    padding-bottom: 10px;
+.flex{
+    display: flex;
+    justify-content: space-around;
 }

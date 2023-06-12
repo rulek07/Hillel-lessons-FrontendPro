@@ -5,29 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Homework 26</title>
+    <title>Homework 27</title>
     <script src="index.js" defer></script>
 </head>
 <body>
     <main id="container">
         <section id="search_block">
             <form action="#" id="search_form">
-                <h2>IDOOGLE</h2>
-                <input type="number" id="inputId" placeholder="Enter post Id" required>
-                <button type="submit" id="submitBtn">Search</button>
+                <h2>I-Weather&#127774;</h2>
+                <input type="text" id="inputCity" placeholder="&#128269;Search by city name:" required>
+                <button type="submit" id="submitBtn">Show me</button>
             </form>
         </section>
         <section id="error_wrapper">
             <h3 id="error_title"></h3>
         </section>
-        <section id="post_wrapper">
-            <h2 id="post_title"></h2>
-            <div id="post_block"></div>
-            <button id="commentBtn">Comments</button>
-        </section>
-        <section id="comment_wrapper">
-            <h2>Comments:</h2>
-            <ul id="comment_block"></ul>
+        <section class="flex" id="weather_wrapper">
+            <div>
+                <h3 id="weatherTitle"></h3>
+                <ul id="weatherList"></ul>
+            </div>
+            <div id="iconBox"></div>
         </section>
     </main>
 </body>
