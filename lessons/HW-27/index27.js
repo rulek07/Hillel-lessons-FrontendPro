@@ -4,7 +4,7 @@ function onSubmit(event){
     event.preventDefault();
     cleaner();
     
-    const src = `http://api.openweathermap.org/data/2.5/weather?q=${search_form.inputCity.value}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
+    const src = `https://api.openweathermap.org/data/2.5/weather?q=${search_form.inputCity.value}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
     let openWeather = new XMLHttpRequest();
 
     openWeather.open('GET', src);
@@ -19,7 +19,7 @@ function onSubmit(event){
         } else {
             weather_wrapper.style.display = 'flex';
             weatherTitle.innerHTML = `Weather in ${search_form.inputCity.value}`;
-            iconBox.innerHTML = `<img src="http://openweathermap.org/img/w/${openWeather.response.weather[0].icon}.png"></img>`
+            iconBox.innerHTML = `<img src="https://openweathermap.org/img/w/${openWeather.response.weather[0].icon}.png"></img>`
             
             const weatherDescription = weatherList.appendChild(document.createElement("li"));
 
