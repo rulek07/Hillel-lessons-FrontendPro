@@ -27,3 +27,19 @@ a{
     background-color: aqua;
     transition: 0.5s;  
 }
+.new{
+    position: relative;
+}
+.text-flicker {
+    animation: flicker 1s infinite;
+    position: absolute;
+    top: -33px;
+    left: 40px;
+    color: red;
+    font-weight: 900;
+    letter-spacing: 5px;
+  }
+    @keyframes flicker {
+      from { opacity: 1;}
+      to { opacity: 0;}
+    }
