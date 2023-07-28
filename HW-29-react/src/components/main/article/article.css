@@ -1,0 +1,33 @@
+.container_article{
+    border-left: 3px solid lightgray;
+    padding: 20px;
+}
+h1{
+    font-size: 35px;
+    font-weight: 700;
+    padding: 20px 0;
+}
+h2{
+    font-size: 28px;
+    font-weight: 700;
+    padding: 20px 0;
+}
+h3{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+.link_box{
+    background-color: #282c34;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 16px;
+    padding: 15px;
+    line-height: 20px;
+}
+.article_description{
+    letter-spacing: 1px;
+    padding: 15px 10px;
+    font-size: 18px;
+    line-height: 25px;
+}

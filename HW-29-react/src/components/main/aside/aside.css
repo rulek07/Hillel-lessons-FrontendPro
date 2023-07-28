@@ -1,0 +1,12 @@
+.container_aside{
+    width: 45%;
+    padding: 15px;
+}
+.aside_list{
+    color: #282c34;
+    font-size: 24px;
+    font-weight: 500;
+}
+li{
+    padding: 10px 0 ;
+}

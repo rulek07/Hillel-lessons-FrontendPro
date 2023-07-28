@@ -1,0 +1,10 @@
+.Container_footer{
+    background-color: #282c34;
+    text-align: center;
+    padding: 20px 0;
+}
+.Footer_description{
+    color: azure;
+    font-size: 36px;
+    font-weight: 600;
+}
