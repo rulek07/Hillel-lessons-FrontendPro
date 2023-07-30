@@ -23,7 +23,7 @@ const Data = [
 ];
 
 function Smiles () {
-const [data, setData] = useState(Data);
+const [data, setData] = useState([...Data]);
 const [winner, setWinner] = useState(null);
 const [click, setClick] = useState(null);
 
@@ -45,10 +45,14 @@ const winnerClick = () => {
     }
     setWinner(result.smile);  
     setClick(maxClicks); 
-    const reloadPage = () => {
-        window.location.reload()
-    } 
-    setTimeout( reloadPage , 3500)      
+};
+
+const onReset = () => {
+    setWinner(null);
+    setClick(null);
+    data.forEach(item => {
+        item.clicks = 0
+    })
 };
 
     return (
@@ -62,7 +66,10 @@ const winnerClick = () => {
                 </li>
             ))}
             </ul>
-            <button onClick={winnerClick}>Who's the winner!</button>
+            <div className="btns-wrapper">
+             <button onClick={winnerClick}>Who's the winner!</button>
+             <button onClick={onReset}>Reset</button>
+            </div>
             <h2>{ click > 0 ? `With ${click} votes wins ${winner}!!!` : "" }</h2> 
         </div>
     )
