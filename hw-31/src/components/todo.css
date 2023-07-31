@@ -1,0 +1,58 @@
+h1{
+    font-size: 40px !important;
+    color: #24A3FF;
+    padding: 20px 0 !important;
+}
+.todos_container{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+}
+.todo_item{
+    display: flex;
+}
+.input_text{
+    font-size: 24px;
+    border: 2px solid rgba(36, 163, 255, 0.5);
+    box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
+    outline: none;
+    color: #000000 !important;
+    border-radius: 8px;
+    padding: 10px;
+}
+.add_button{
+    background: #24A3FF;
+    box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
+    border-radius: 8px;
+    border: none;
+    font-size: 24px;
+    padding: 12px;
+    margin-left: 40px;
+}
+.add_button:hover {
+    background: #0085FF !important;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.del_button{
+    background: #ff2456cf;
+    color: #ffffff;
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    padding: 8px 20px;
+    margin: 10px 30px;
+}
+.todos_wrapper{
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid rgba(36, 163, 255, 0.5);
+    border-radius: 8px;
+    font-size: 22px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.add_wrapper{
+    padding: 30px;
+}

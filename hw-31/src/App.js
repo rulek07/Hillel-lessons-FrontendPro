@@ -1,10 +1,9 @@
-import './App.css';
-import Smiles from './components/smiles/smiles';
+import Todo from './components/todo'
 
 function App() {
   return (
     <div className="App">
-      <Smiles />
+      <Todo />
     </div>
   );
 }
