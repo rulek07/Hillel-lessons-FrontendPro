@@ -1,15 +1,11 @@
 import React from "react";
 
-function TodoDelButton({ todo, todoDelButton }) {
+function TodoDelButton({ todoId, todoDelButton }) {
     const handleDeleteClick = () => {
-        todoDelButton(todo.id);
+        todoDelButton(todoId);
     };
 
-    return (
-        <>
-            <button className="del_button" onClick={handleDeleteClick}>Del</button>
-        </>
-    );
+    return <button className="del_button" onClick={handleDeleteClick}>Del</button>;
 }
 
 export default TodoDelButton;

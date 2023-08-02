@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import "./todo.css"
 import "./reset.css"
-import TodoList from "./todoList";
+import TodoItem from "./todoItem";
 import Button from "./todoAddButton";
 
+const initialTodos = [
+    {
+        id: 1,
+        title: 'Wake up at 6:00',
+        checked: false,
+    },
+    {
+        id: 2,
+        title: 'Have breakfast at 6:30',
+        checked: false,
+    }
+];
+
 function Todo() {
-    const initialTodos = [
-        {
-            id: 1,
-            title: 'Wake up at 6:00',
-            checked: false,
-        },
-        {
-            id: 2,
-            title: 'Have breakfast at 6:30',
-            checked: false,
-        }
-    ];
-    const [data, setData] = useState(initialTodos);
+    const [todos, setTodos] = useState(initialTodos);
     const [inputValue, setInputValue] = useState("");
 
     const todoAddButton = () => {
@@ -31,20 +32,36 @@ function Todo() {
             title: inputValue,
         };
 
-    setData([...data, newTodo]);
-    setInputValue("");
+        setTodos([...todos, newTodo]);
+        setInputValue("");
     };
 
+    const onChecked = (todoId) => {
+        setTodos(prevValue => {
+            return [...prevValue].map(item => {
+                if (item.id === todoId) {
+                    return {
+                        ...item,
+                        checked: !item.checked
+                    }
+                }
+                return item;
+            })
+        })
+    }
+
     const todoDelButton = (deletedId) => {
-        const updatedData = data.filter((item) => item.id !== deletedId);
-        setData(updatedData);
+        const updatedData = todos.filter((item) => item.id !== deletedId);
+        setTodos(updatedData);
     };
 
     return (
         <div className="todos_container">
             <div>
                 <h1>Your business for the day.</h1>
-                <TodoList todos={data} todoDelButton={todoDelButton} />
+                <ul>
+                    {todos.map((todo, index) => (<TodoItem key={todo.id} index={index} onChecked={() => onChecked(todo.id)} todoDelButton={todoDelButton} {...todo} />))}
+                </ul>
             </div>
             <div>
                 <Button 
