@@ -23,15 +23,22 @@ const Data = [
 ];
 
 function Smiles () {
-const [data, setData] = useState([...Data]);
+const [data, setData] = useState(Data);
 const [winner, setWinner] = useState(null);
 const [click, setClick] = useState(null);
 
 const clickedSmile = (currentId) => {
-    const appData = [...data];
-    const smile = appData.find((item) => item.id === currentId);
-        smile.clicks += 1;
-        setData(appData);
+    setData(prevValue => {
+        return [...prevValue].map((item) => {
+            if (item.id === currentId) {
+                return {
+                    ...item,
+                    clicks: item.clicks + 1
+                };
+            }
+            return item;
+        });
+    })
 };
 
 const maxClicks = Math.max(...data.map((smile) => smile.clicks));
@@ -50,9 +57,7 @@ const winnerClick = () => {
 const onReset = () => {
     setWinner(null);
     setClick(null);
-    data.forEach(item => {
-        item.clicks = 0
-    })
+    setData(Data)
 };
 
     return (
