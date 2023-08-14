@@ -2,11 +2,13 @@ import { createBrowserRouter } from 'react-router-dom'
 import { ROUTES } from './constants'
 import { Root } from './pages/Root'
 import { Users } from './pages/Userspage'
+import { Contacts } from './pages/Contacts'
 import { Albums } from './pages/AlbumsPage'
 import { Posts } from './pages/Postspage'
 import { Post } from './pages/Postpage'
 import { getUsers } from './services/getUsers'
 import { getPosts } from './services/getPosts'
+import { getContacts } from './services/getContacts'
 import { getPostById } from './services/getPostById'
 import { getAlbumsByUserId } from './services/getAlbumsByUserId'
 import { ErrorPage } from './pages/ErrorPage/ErrorPage'
@@ -21,6 +23,11 @@ export const router = createBrowserRouter([
         index: ROUTES.users,
         element: <Users />,
         loader: getUsers,
+      },
+      {
+        path: ROUTES.contacts,
+        element: <Contacts />,
+        loader: getContacts,
       },
       {
         path: ROUTES.albums(),

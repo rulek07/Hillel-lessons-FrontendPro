@@ -9,6 +9,9 @@ export const Nav = () => {
                     <Link to={ROUTES.root}>Home</Link>
                 </li>
                 <li>
+                    <Link to={ROUTES.contacts}>Contacts</Link>
+                </li>
+                <li>
                     <Link to={ROUTES.posts}>Posts</Link>
                 </li>
             </ul>

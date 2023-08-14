@@ -36,7 +36,9 @@ export const Albums = () => {
                                 ? 
                                 <Photo photos={photos[album.id]} /> 
                                 : 
-                                <button key={album.id} onClick={() => clickedAlbum(album.id)}>PHOTOS</button>
+                                <button key={album.id} onClick={() => clickedAlbum(album.id)}>
+                                    PHOTOS
+                                </button>
                             }
                         </li>    
                     )}

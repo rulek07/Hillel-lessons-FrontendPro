@@ -54,6 +54,7 @@ button {
   border-radius: 5px;
   border: 2px solid grey;
   cursor: pointer;
+  margin: 7px 0;
 }
 .user-info,
 .post {
@@ -66,4 +67,41 @@ button {
   border: 2px solid white;
   padding: 3px 15px;
   border-radius: 5px;
+}
+table{
+  border: 2px solid grey;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+td{
+  border: 2px solid grey;
+}
+tr{
+  border: 2px solid grey;
+}
+.del_button{
+  background: #ff2456cf;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  font-size: 20px;
+  padding: 8px 20px;
+  margin: 10px 30px;
+  cursor: pointer;
+}
+.btn-box {
+  text-align: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  padding: 20px;
+}
+input {
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 10px 0px;
 }
